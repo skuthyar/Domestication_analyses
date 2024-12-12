@@ -1,5 +1,6 @@
 ## Packages and versions
 eggNOG: https://github.com/eggnogdb/eggnog-mapper/wiki/eggNOG-mapper-v2.1.5-to-v2.1.12
+
 Software Requirements
 Python 3.7 
 BioPython 1.76 
