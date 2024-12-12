@@ -3,6 +3,8 @@
 https://github.com/eggnogdb/eggnog-mapper/wiki/eggNOG-mapper-v2.1.5-to-v2.1.12
 
 Software Requirements:
+| Package | version |
+| ------------- | ------------- |
 | Python | 3.7 | 
 | BioPython | 1.76 | 
 | psutil | 5.7.0 | 
@@ -19,6 +21,8 @@ Download databases: download_eggnog_data.py
 https://dbcan.readthedocs.io/en/latest/
 
 Software Requirements:
+| Package | version |
+| ------------- | ------------- |
 | Python | 3.6|
 
 Installation:
