@@ -74,3 +74,14 @@ done
 mkdir ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/combined
 python ~/kraken2/kraken2-2.1.3/combine_mpa.py -i ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/*_mpa.txt -o ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/combined/combined_phylum_mpa.txt
 grep -E "(p__)|(#Classification)" ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/combined/combined_phylum_mpa.txt > bracken_abundance_phylum_mpa.txt
+
+#Cleaning up sample names
+sed -i -e 's/_report_bracken.txt//g' ~/kraken2/kraken2-2.1.3/k2_reports/braken/species/mpa/combined/bracken_abundance_species_mpa.txt
+sed -i -e 's/_report_bracken.txt//g' ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/mpa/combined/bracken_abundance_genus_mpa.txt
+sed -i -e 's/_report_bracken.txt//g' ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/combined/bracken_abundance_phylum_mpa.txt
+
+#Cleaning up top-level folders
+mkdir bracken_abundance_files
+cp ~/kraken2/kraken2-2.1.3/k2_reports/braken/species/mpa/combined/bracken_abundance_species_mpa.txt ~/kraken2/kraken2-2.1.3/k2_reports/braken/bracken_abundance_files/.
+cp ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/mpa/combined/bracken_abundance_genus_mpa.txt ~/kraken2/kraken2-2.1.3/k2_reports/braken/bracken_abundance_files/.
+cp ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/combined/bracken_abundance_phylum_mpa.txt ~/kraken2/kraken2-2.1.3/k2_reports/braken/bracken_abundance_files/.
