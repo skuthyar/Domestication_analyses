@@ -1,4 +1,8 @@
 ## Packages and versions
+The first step for annotations is to annotate the assembled sequences with prokka. The prokka output has many files, but I mostly used the protein (.faa), the nucleotide (.fna), and the .gff files. 
+
+The eggNOG, dbcan3, and rgi annotations can happen in parallel. 
+
 # prokka
 https://github.com/tseemann/prokka
 
