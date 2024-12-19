@@ -12,9 +12,11 @@ Software Requirements:
 
 Installation:
 conda install -c bioconda -c conda-forge eggnog-mapper
+
 Export to path:
 export PATH=/home/user/eggnog-mapper:/home/user/eggnog-mapper/eggnogmapper/bin:"$PATH"
 export EGGNOG_DATA_DIR=/home/user/eggnog-mapper-data
+
 Download databases: download_eggnog_data.py 
 
 # dbcan3
@@ -27,5 +29,6 @@ Software Requirements:
 
 Installation:
 conda install dbcan -c conda-forge -c bioconda
+
 Build database:
 dbcan_build --cpus 8 --db-dir db --clean
