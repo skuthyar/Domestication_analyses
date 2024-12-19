@@ -15,11 +15,12 @@ conda install -c bioconda -c conda-forge eggnog-mapper
 
 Export to path:
 export PATH=/home/user/eggnog-mapper:/home/user/eggnog-mapper/eggnogmapper/bin:"$PATH"
+
 export EGGNOG_DATA_DIR=/home/user/eggnog-mapper-data
 
 Download databases: download_eggnog_data.py 
 
-# dbcan3
+# dbcan3 for CAZyme annotation
 https://dbcan.readthedocs.io/en/latest/
 
 Software Requirements:
@@ -32,3 +33,6 @@ conda install dbcan -c conda-forge -c bioconda
 
 Build database:
 dbcan_build --cpus 8 --db-dir db --clean
+
+# rgi for AMR annotation
+Installed via singularity
