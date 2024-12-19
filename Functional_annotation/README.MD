@@ -1,4 +1,19 @@
 ## Packages and versions
+# prokka
+https://github.com/tseemann/prokka
+
+Installation:
+conda install -c conda-forge -c bioconda -c defaults prokka
+
+Software Requirements:
+| Package | 
+| ------------- | 
+| BioPerl |
+| GNU Parallel | 
+| BLAST+ | 
+| Prodigal | 
+| TBL2ASN |
+
 # eggNOG
 https://github.com/eggnogdb/eggnog-mapper/wiki/eggNOG-mapper-v2.1.5-to-v2.1.12
 
@@ -35,4 +50,5 @@ Build database:
 dbcan_build --cpus 8 --db-dir db --clean
 
 # rgi for AMR annotation
+https://github.com/arpcard/rgi
 Installed via singularity
