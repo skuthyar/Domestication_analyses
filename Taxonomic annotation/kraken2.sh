@@ -38,3 +38,39 @@ done
 
 mv *_bracken_phylums.txt ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/.
 
+#Generate combined abundance tables in mpa format
+mkdir braken/species/mpa
+mkdir braken/genus/mpa
+mkdir braken/phylum/mpa
+
+for i in ~/kraken2/kraken2-2.1.3/k2_reports/braken/species/*_report_bracken_species.txt;
+do
+  filename=$(basename "$i")
+  fname="${filename%_report_bracken_species.txt}"
+  python ~/kraken2/kraken2-2.1.3/kreport2mpa.py -r $i -o ~/kraken2/kraken2-2.1.3/k2_reports/braken/species/mpa/${fname}_mpa.txt --display-header
+done
+
+mkdir ~/kraken2/kraken2-2.1.3/k2_reports/braken/species/mpa/combined
+python ~/kraken2/kraken2-2.1.3/combine_mpa.py -i ~/kraken2/kraken2-2.1.3/k2_reports/braken/species/mpa/*_mpa.txt -o ~/kraken2/kraken2-2.1.3/k2_reports/braken/species/mpa/combined/combined_species_mpa.txt
+grep -E "(s__)|(#Classification)" ~/kraken2/kraken2-2.1.3/k2_reports/braken/species/mpa/combined/combined_species_mpa.txt > bracken_abundance_species_mpa.txt
+
+for i in ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/*_report_bracken_genuses.txt;
+do
+  filename=$(basename "$i")
+  fname="${filename%_report_bracken_genues.txt}"
+  python ~/kraken2/kraken2-2.1.3/kreport2mpa.py -r $i -o ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/mpa/${fname}_mpa.txt --display-header
+done
+
+mkdir ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/mpa/combined
+python ~/kraken2/kraken2-2.1.3/combine_mpa.py -i ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/mpa/*_mpa.txt -o ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/mpa/combined/combined_genus_mpa.txt
+grep -E "(g__)|(#Classification)" ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/mpa/combined/combined_genus_mpa.txt > bracken_abundance_genus_mpa.txt
+
+for i in ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/*_report_bracken_phylums.txt;
+do
+  filename=$(basename "$i")
+  fname="${filename%_report_bracken_phylums.txt}"
+  python ~/kraken2/kraken2-2.1.3/kreport2mpa.py -r $i -o ~/kraken2/kraken2-2.1.3/k2_reports/braken/genus/mpa/${fname}_mpa.txt --display-header
+done
+mkdir ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/combined
+python ~/kraken2/kraken2-2.1.3/combine_mpa.py -i ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/*_mpa.txt -o ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/combined/combined_phylum_mpa.txt
+grep -E "(p__)|(#Classification)" ~/kraken2/kraken2-2.1.3/k2_reports/braken/phylum/mpa/combined/combined_phylum_mpa.txt > bracken_abundance_phylum_mpa.txt
