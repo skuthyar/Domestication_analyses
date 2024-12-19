@@ -1,3 +1,4 @@
+# annotate with prokka
 for SAMPLEID in $(cat ~/prokka_samples.txt);
 
 do 
